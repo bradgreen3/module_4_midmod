@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates_confirmation_of :password
   validates_uniqueness_of :email, :presence => true, :case_sensitive => false
 
+  has_many :links
+
 end

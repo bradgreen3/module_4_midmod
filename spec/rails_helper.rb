@@ -103,3 +103,12 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+def stub_login_user
+  user = User.create(email: "test@test.com", password: "pass", password_confirmation: "pass")
+  visit login_path
+  fill_in "Email", with: "test@test.com"
+  fill_in "Password", with: "pass"
+  click_on "Login"
+  user
+end

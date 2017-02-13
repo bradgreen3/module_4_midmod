@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe "an unauthenticated user" do
   context "clicking sign up from root page" do
