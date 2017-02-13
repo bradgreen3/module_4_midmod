@@ -1,8 +1,9 @@
-<div class="container" style="margin-top: 10px;">
+<div class="container links-index" style="margin-top: 10px;">
   <div class="row">
     <div class="col-md-10"></div>
     <div class="col-md-2">
       <% if current_user %>
+        <p class="user-email" data-userid="<%=current_user.id%>"> Signed in as: <%= current_user.email %> </p>
         <%= link_to "Sign Out", logout_path, method: "delete" %>
       <% end %>
     </div>
@@ -13,7 +14,7 @@
       <div class="col-md-4">
         <% if current_user %>
           <h3> Submit New Link </h3>
-          <%= bootstrap_form_tag url: "/links" do %>
+          <%= form_tag '/links', :class => 'link-submit' do %>
             <%= label_tag :url %>
             <%= text_field :url, nil, placeholder: "Url" %>
 
@@ -24,7 +25,12 @@
 
           <% end %>
         <% end %>
-        <h1> Index of Links </h3>
+        <h1> My Links </h3>
+          <% current_user.links.each do |link| %>
+          <p> Url: <%= link.url %> </p>
+          <p> Title: <%= link.title %></p>
+          <p style="border-bottom: 1px solid black;"> Read Status: <%= link.read %></p>
+          <% end %>
       </div>
       <div class="col-md-4"></div>
     </div>
