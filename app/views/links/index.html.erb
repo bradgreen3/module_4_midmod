@@ -11,7 +11,20 @@
   <div class="row">
     <div class="col-md-4"></div>
       <div class="col-md-4">
-        <h3> Index of Links </h3>
+        <% if current_user %>
+          <h3> Submit New Link </h3>
+          <%= bootstrap_form_tag url: "/links" do %>
+            <%= label_tag :link %>
+            <%= text_field :link, nil, placeholder: "Link" %>
+
+            <%= label_tag :title %>
+            <%= text_field :title, nil, placeholder: "Title" %>
+
+            <%= submit_tag "Submit" %>
+
+          <% end %>
+        <% end %>
+        <h1> Index of Links </h3>
       </div>
       <div class="col-md-4"></div>
     </div>

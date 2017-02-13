@@ -4,10 +4,12 @@ describe "an authenticated user" do
   context "visiting links index page" do
     it "sees a form to submit a link" do
 
+      stub_login_user
+
       visit links_path
 
-      expect(page).to have_content("URL")
-      expect(page).to have_content("Title")
+      expect(page).to have_text("Link")
+      expect(page).to have_text("Title")
 
     end
   end
