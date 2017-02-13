@@ -1,0 +1,13 @@
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <%= bootstrap_form_tag url: "/login" do %>
+      <%= label_tag :email %>
+      <%= text_field :email, nil, placeholder: "Email" %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, placeholder: "Password" %>
+
+      <%= submit_tag "Login" %>
+
+    <% end %>
+<div class="col-md-3"></div>
