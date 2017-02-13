@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -44,8 +43,4 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'poltergeist'
   gem 'shoulda-matchers'
-end
-
-group :production do
-  gem 'rails_12factor', group: :production
 end
