@@ -20,6 +20,7 @@ gem 'rb-readline'
 gem 'coolline'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'validate_url'
 
 # gem 'unicorn'
 

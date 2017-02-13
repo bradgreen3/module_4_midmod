@@ -8,7 +8,7 @@ describe "an authenticated user" do
 
       visit links_path
 
-      expect(page).to have_text("Link")
+      expect(page).to have_text("Url")
       expect(page).to have_text("Title")
 
     end

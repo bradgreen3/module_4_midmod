@@ -14,8 +14,8 @@
         <% if current_user %>
           <h3> Submit New Link </h3>
           <%= bootstrap_form_tag url: "/links" do %>
-            <%= label_tag :link %>
-            <%= text_field :link, nil, placeholder: "Link" %>
+            <%= label_tag :url %>
+            <%= text_field :url, nil, placeholder: "Url" %>
 
             <%= label_tag :title %>
             <%= text_field :title, nil, placeholder: "Title" %>
