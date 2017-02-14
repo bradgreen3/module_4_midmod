@@ -9,6 +9,8 @@ $('.links-index').ready(function() {
   $('.markread').click(function(e) {
     e.preventDefault();
     var linkid = $(this).data('linkid')
+    var linkUrl = $(this).attr('id')
+    fireAndForget(linkUrl)
     markRead(linkid)
   })
 })
@@ -18,6 +20,16 @@ function createLink(url, title, userid) {
     method: 'POST',
     url: '/api/v1/links/',
     data: {'url': url, 'title': title, 'userid': userid}
+  })
+  .done(refreshPage)
+  .fail(onFail)
+}
+
+function fireAndForget(linkUrl) {
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:3001/links/',
+    data: {'linkUrl': linkUrl}
   })
   .done(refreshPage)
   .fail(onFail)

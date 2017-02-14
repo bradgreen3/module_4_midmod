@@ -30,7 +30,7 @@
           <p> Url: <%= link.url %> </p>
           <p> Title: <%= link.title %></p>
           <p> Read Status: <%= link.read %></p>
-          <a data-linkid="<%=link.id%>" class="markread" href="#">Mark as Read</a>
+          <a id="<%=link.url%>" data-linkid="<%=link.id%>" class="markread" href="#">Mark as Read</a>
           <p style="border-bottom: 1px solid black;"></p>
           <% end %>
       </div>
