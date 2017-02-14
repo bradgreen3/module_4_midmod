@@ -15,7 +15,6 @@ describe "authenticated user" do
     fill_in "Url", with: "http://www.google.com"
     click_on "Submit"
 
-    expect(current_path).to eq(links_path)
     expect(page).to have_text("http://www.google.com")
     expect(page).to_not have_text("https://turing.io")
 
