@@ -11,31 +11,53 @@
 
   <div class="row">
     <div class="col-md-4"></div>
-      <div class="col-md-4">
+      <div class="col-md-4 blah">
         <% if current_user %>
           <h3> Submit New Link </h3>
           <%= form_tag '/links', :class => 'link-submit' do %>
             <%= label_tag :url %>
             <%= text_field :url, nil, placeholder: "Url" %>
 
+            <br>
+
             <%= label_tag :title %>
             <%= text_field :title, nil, placeholder: "Title" %>
+
+            <br>
 
             <%= submit_tag "Submit" %>
 
           <% end %>
         <% end %>
-        <h1> My Links </h3>
-          <% current_user.links.each do |link| %>
-          <p> Url: <%= link.url %> </p>
-          <p> Title: <%= link.title %></p>
-          <p> Read Status: <%= link.read %></p>
-          <a id="<%=link.url%>" data-linkid="<%=link.id%>" class="markread" href="#">Mark as Read</a>
-          <%= button_to "Edit", edit_link_path(link.id), method: :get %>
-          <p style="border-bottom: 1px solid black;"></p>
-          <% end %>
       </div>
       <div class="col-md-4"></div>
     </div>
+    <div class="links">
+    <h1 class="headerlinks"> My Links </h3>
+      <% current_user.links.each do |link| %>
+      <p> Url: <%= link.url %> </p>
+      <p> Title: <%= link.title %></p>
+      <p> Read Status: <%= link.read %></p>
+      <a id="<%=link.url%>" data-linkid="<%=link.id%>" class="markread" href="#">Mark as Read</a>
+      <%= button_to "Edit", edit_link_path(link.id), method: :get %>
+      <p style="border-bottom: 1px dotted black;"></p>
+      <% end %>
+    </div>
   </div>
 </div>
+
+<style>
+
+.links {
+  text-align: center;
+}
+
+.headerlinks {
+  /*border: 10px solid black;*/
+}
+
+.blah {
+  text-align: center;
+  border: 10px solid black;
+}
+</style>
