@@ -28,7 +28,7 @@ function createLink(url, title, userid) {
 function fireAndForget(linkUrl) {
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:3001/links/',
+    url: 'https://bg-hotreads.herokuapp.com/links/',
     data: {'linkUrl': linkUrl}
   })
   .done(refreshPage)
